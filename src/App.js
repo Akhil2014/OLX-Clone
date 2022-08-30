@@ -1,9 +1,10 @@
+import Navbar from "./Components/Navbar";
 
 
 function App() {
   return (
     <div>
-      Akhil
+      <Navbar />
     </div>
   );
 }
