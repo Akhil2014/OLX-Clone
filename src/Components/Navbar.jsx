@@ -16,7 +16,7 @@ import {
 import { FaSearch } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
 import { BsBell } from "react-icons/bs";
-import { GoPlus } from 'react-icons/go'
+import { GoPlus } from "react-icons/go";
 const Navbar = () => {
   return (
     <Box bg="#f1f1f1" w="100%" h="70px">
@@ -41,11 +41,19 @@ const Navbar = () => {
           _focus={{ borderColor: "aqua" }}
           borderColor="#002f34"
           _hover={{ borderColor: "#002f34" }}
-          placeholder="large size"
+          placeholder="location"
           size="lg"
           color="black"
           bg="white"
-        />
+        >
+          <option value="india">India</option>
+          <option value="delhi">Delhi</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="banglore">Banglore 1</option>
+          <option value="punjab">Punjab</option>
+          <option value="bihar">Bihar</option>
+        </Select>
+
         <Flex>
           <Input
             bg="white"
@@ -79,10 +87,18 @@ const Navbar = () => {
             English
           </Text>
         </Box>
-        <Box p="6px" rounded={50} _hover={{bg:"aliceblue" , cursor:"pointer"}}>
+        <Box
+          p="6px"
+          rounded={50}
+          _hover={{ bg: "aliceblue", cursor: "pointer" }}
+        >
           <BiMessageRounded color="black" size="27px" />
         </Box>
-        <Box p="6px" rounded={50} _hover={{bg:"aliceblue" , cursor:"pointer"}} >
+        <Box
+          p="6px"
+          rounded={50}
+          _hover={{ bg: "aliceblue", cursor: "pointer" }}
+        >
           <BsBell color="black" size="27px" />
         </Box>
         <Box>
@@ -99,7 +115,13 @@ const Navbar = () => {
             </MenuList>
           </Menu>
         </Box>
-        <Button leftIcon={<GoPlus />}  colorScheme="white" rounded={20} border="5px solid black" variant="solid">
+        <Button
+          leftIcon={<GoPlus />}
+          colorScheme="white"
+          rounded={20}
+          border="5px solid black"
+          variant="solid"
+        >
           Sell
         </Button>
       </Flex>
