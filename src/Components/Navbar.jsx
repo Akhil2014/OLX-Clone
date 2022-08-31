@@ -41,7 +41,7 @@ const Navbar = () => {
           _focus={{ borderColor: "aqua" }}
           borderColor="#002f34"
           _hover={{ borderColor: "#002f34" }}
-          placeholder="location"
+          placeholder="India"
           size="lg"
           color="black"
           bg="white"
