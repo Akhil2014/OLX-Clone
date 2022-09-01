@@ -3,11 +3,12 @@ import { legacy_createStore,combineReducers,applyMiddleware,compose } from "redu
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { homeReducer } from "./HomeReducer/HomeReducer";
+import { productReducer } from "./ProductReducer/ProductReducer";
 
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const rootReducer = combineReducers({homeReducer})
+const rootReducer = combineReducers({homeReducer , productReducer})
 
 const middleware = [thunk];
 

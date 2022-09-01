@@ -1,10 +1,11 @@
 import HomePage from "./Pages/HomePage";
+import MainRoutes from "./Pages/MainRoutes";
 
 
 function App() {
   return (
     <div>
-      <HomePage />
+      <MainRoutes />
     </div>
   );
 }

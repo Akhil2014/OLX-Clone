@@ -15,7 +15,7 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const getData = (id) => {
     dispatch(getHomeData(id));
-    setPage(p => p+1)
+    setPage((p) => p + 1);
   };
   useEffect(() => {
     if (homeData.length === 0) {
@@ -32,22 +32,23 @@ const HomePage = () => {
         h="120px"
         w="100%"
       />
-      <Box bg="red" h="800px" w="100%">
+      <Box bg="white" h="auto" w="100%">
+        <Button m="auto" colorScheme="orange" onClick={() => getData(page)}>
+          Loading more...
+        </Button>
         <Grid
-          templateColumns="repeat(5, 1fr)"
+          templateColumns="repeat(4, 1fr)"
           gap={6}
           bg="blue"
           w="80%"
           m="auto"
-          h="100%"
+          h="auto"
+          p="20px"
         >
           {isLoading && <Heading>Loading....</Heading>}
-          <Button m="auto" colorScheme="orange" onClick={() => getData(page)}>
-            Loading more...
-          </Button>
           {homeData.length !== 0 &&
             homeData.map((e) => {
-              return <GridItem key={e.id} w="100%" h="10" bg="gold" />;
+              return <GridItem key={e.id} w="100%" h="300" bg="gold" />;
             })}
         </Grid>
       </Box>
