@@ -1,20 +1,60 @@
-import { Box, Image } from '@chakra-ui/react'
-import React from 'react'
-import Catagories from '../Components/Catagories'
-import Footer from '../Components/Footer'
-import Footersec from '../Components/Footersec'
-import Navbar from '../Components/Navbar'
+import { Box, Button, Grid, GridItem, Heading, Image } from "@chakra-ui/react";
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Catagories from "../Components/Catagories";
+import Footer from "../Components/Footer";
+import Footersec from "../Components/Footersec";
+import Navbar from "../Components/Navbar";
+import { getHomeData } from "../Redux/HomeReducer/action";
 
 const HomePage = () => {
+  const { homeData, isLoading } = useSelector((state) => state.homeReducer);
+  const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+  const getData = (id) => {
+    dispatch(getHomeData(id));
+    setPage(p => p+1)
+  };
+  useEffect(() => {
+    if (homeData.length === 0) {
+      getData(1);
+    }
+  }, []);
   return (
     <Box>
-        <Navbar />
-        <Catagories />
-        <Image alt="banner" src="https://statics.olx.in/olxin/banners/hero_bg_in_v2@1x.png" h="120px" w="100%"/>
-        <Footer />
-        <Footersec />
+      <Navbar />
+      <Catagories />
+      <Image
+        alt="banner"
+        src="https://statics.olx.in/olxin/banners/hero_bg_in_v2@1x.png"
+        h="120px"
+        w="100%"
+      />
+      <Box bg="red" h="800px" w="100%">
+        <Grid
+          templateColumns="repeat(5, 1fr)"
+          gap={6}
+          bg="blue"
+          w="80%"
+          m="auto"
+          h="100%"
+        >
+          {isLoading && <Heading>Loading....</Heading>}
+          <Button m="auto" colorScheme="orange" onClick={() => getData(page)}>
+            Loading more...
+          </Button>
+          {homeData.length !== 0 &&
+            homeData.map((e) => {
+              return <GridItem key={e.id} w="100%" h="10" bg="gold" />;
+            })}
+        </Grid>
+      </Box>
+      <Footer />
+      <Footersec />
     </Box>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
