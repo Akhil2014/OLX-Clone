@@ -17,9 +17,9 @@ import { FaSearch } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
 import { BsBell } from "react-icons/bs";
 import { GoPlus } from "react-icons/go";
-const Navbar = () => {
+const Navbar = ({country , setCountry , sendQuery , query , setQuery}) => {
   return (
-    <Box bg="#f1f1f1" w="100%" h="70px">
+    <Box bg="#f1f1f1" w="100%" h="70px" position="fixed">
       <Flex
         height="100%"
         width="80%"
@@ -45,6 +45,8 @@ const Navbar = () => {
           size="lg"
           color="black"
           bg="white"
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
         >
           <option value="india">India</option>
           <option value="delhi">Delhi</option>
@@ -68,6 +70,8 @@ const Navbar = () => {
             w="450px"
             placeholder="Find Cars, Mobile Phones and more..."
             _placeholder={{ opacity: 1, color: "black" }}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
           <Button
             bg="#002f34"
@@ -78,6 +82,7 @@ const Navbar = () => {
             borderBottomLeftRadius={0}
             _focus={{ bg: "#002f34" }}
             variant="solid"
+            onClick={sendQuery}
           >
             <FaSearch />
           </Button>

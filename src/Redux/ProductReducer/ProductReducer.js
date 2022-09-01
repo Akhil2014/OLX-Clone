@@ -1,7 +1,8 @@
-import { FAILURE_PRODUCT_DATA, REQUEST_PRODUCT_DATA, SUCCESS_PRODUCT_DATA } from "./actiontype";
+import { FAILURE_PRODUCT_DATA, REMOVER_DATA, REQUEST_PRODUCT_DATA, SUCCESS_PRODUCT_DATA } from "./actiontype";
 
 const initialState = {
   product: [],
+  query:"",
   isLoading: false,
   isError: false,
 };
@@ -12,13 +13,14 @@ const productReducer = (state = initialState, {type , payload}) => {
             return{
                 ...state,
                 isLoading:true,
-                isError:false
+                isError:false,
+                query:payload
             }
         }
         case SUCCESS_PRODUCT_DATA : {
             return{
                 ...state,
-                product:payload,
+                product:[...state.product , ...payload],
                 isLoading:false,
                 isError:false
             }
@@ -28,6 +30,12 @@ const productReducer = (state = initialState, {type , payload}) => {
                 ...state,
                 isError:true,
                 isLoading:false
+            }
+        }
+        case REMOVER_DATA : {
+            return {
+                ...state , 
+                product:[]
             }
         }
         default : 

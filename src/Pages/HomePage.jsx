@@ -4,9 +4,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Catagories from "../Components/Catagories";
-import Footer from "../Components/Footer";
-import Footersec from "../Components/Footersec";
-import Navbar from "../Components/Navbar";
 import { getHomeData } from "../Redux/HomeReducer/action";
 
 const HomePage = () => {
@@ -24,7 +21,6 @@ const HomePage = () => {
   }, []);
   return (
     <Box>
-      <Navbar />
       <Catagories />
       <Image
         alt="banner"
@@ -52,8 +48,6 @@ const HomePage = () => {
             })}
         </Grid>
       </Box>
-      <Footer />
-      <Footersec />
     </Box>
   );
 };
