@@ -51,7 +51,7 @@ const Navbar = ({country , setCountry , sendQuery , query , setQuery}) => {
           <option value="india">India</option>
           <option value="delhi">Delhi</option>
           <option value="mumbai">Mumbai</option>
-          <option value="banglore">Banglore 1</option>
+          <option value="banglore">Banglore</option>
           <option value="punjab">Punjab</option>
           <option value="bihar">Bihar</option>
         </Select>
